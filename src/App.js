@@ -1,23 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from "react";
+import NewDeck, { ShuffleDeck }  from "./components/Deck"
+import ScoreBoard from "./components/ScoreBoard"
+import Board from "./components/Board"
 
 function App() {
+  const [cards, setCards] = useState([])
+  const [score, setScore] = useState(0)
+  const [highScore, setHighScore] = useState(0)
+
+  useEffect(() => {
+    setCards(ShuffleDeck(NewDeck()))
+  }, [])
+
+  const handleClick = (id) => {
+    console.log(id)
+
+    // if(clicked) {
+    //   if (score > highScore) {
+    //     setHighScore(score)
+    //     setScore(0)
+    //   }
+    //   //reshuffle
+    // }
+    // else {
+    //   clicked = true
+    //   //reshuffle
+    // }
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ScoreBoard score={score} highScore={highScore} />
+      <Board cards={cards} handleClick={handleClick} />
     </div>
   );
 }
