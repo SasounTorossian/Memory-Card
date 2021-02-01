@@ -10,7 +10,7 @@ export default function Board({cards, handleClick}) {
                         id={card.id}
                         text={card.text}
                         clicked={card.clicked}
-                        handleClick={() => handleClick(card.id)}    
+                        handleClick={() => handleClick(card)}    
                     />
                 </div>
             ))}

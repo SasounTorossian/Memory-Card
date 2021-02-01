@@ -1,4 +1,5 @@
-export default function NewDeck() {
+// Create array of objecs to serve as deck.
+export default function newDeck() {
     let id = 0
     const cards = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"]
         .reduce((acc, text) => {
@@ -13,8 +14,9 @@ export default function NewDeck() {
     return cards
 }
 
-export function ShuffleDeck(cards) {
-    var currentIndex = cards.length, temporaryValue, randomIndex;
+// Shuffles deck using Fisher–Yates algorithm
+export function shuffleDeck(deck) {
+    var currentIndex = deck.length, temporaryValue, randomIndex;
   
     // While there remain elements to shuffle...
     while (0 !== currentIndex) {
@@ -24,20 +26,13 @@ export function ShuffleDeck(cards) {
       currentIndex -= 1;
   
       // And swap it with the current element.
-      temporaryValue = cards[currentIndex];
-      cards[currentIndex] = cards[randomIndex];
-      cards[randomIndex] = temporaryValue;
+      temporaryValue = deck[currentIndex];
+      deck[currentIndex] = deck[randomIndex];
+      deck[randomIndex] = temporaryValue;
     }
   
-    return cards;
+    return deck;
 }
 
-// Difficulty mode to draw more or less cards.
-// Draws top 3 cards from deck
-export function DrawThreeCards(cards) {
-    let drawnHand = []
-    for(let i=0; i<3; i++) {
-        drawnHand.push(cards[i])
-    }
-    return drawnHand
-}
+// Draws first 3 cards from deck
+export function drawThreeCards(deck) { return deck.slice(0, 3) }
