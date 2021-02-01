@@ -31,3 +31,13 @@ export function ShuffleDeck(cards) {
   
     return cards;
 }
+
+// Difficulty mode to draw more or less cards.
+// Draws top 3 cards from deck
+export function DrawThreeCards(cards) {
+    let drawnHand = []
+    for(let i=0; i<3; i++) {
+        drawnHand.push(cards[i])
+    }
+    return drawnHand
+}

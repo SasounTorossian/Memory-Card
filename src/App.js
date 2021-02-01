@@ -12,6 +12,10 @@ function App() {
     setCards(ShuffleDeck(NewDeck()))
   }, [])
 
+  // useEffect(() => {
+  //   setCards(ShuffleDeck(cards))
+  // }, [score])
+
   const incrementScore = () => {
     setScore(score + 1)
   }
@@ -25,8 +29,13 @@ function App() {
     return cards.findIndex((card) => card.id === id);
   };
 
+  const getIndexFromCard = (card) => {
+    return cards.findIndex((deckCard) => deckCard.id === card.id);
+  };
+
+  // TODO: Get card instead of ID. How to update cards based on that. Need index.
   const handleClick = (id) => {
-    let index = getItemIndex(cards, id)
+    let index = getItemIndex(cards, id) // TODO: Could pass card
     console.log(id)
     console.log(index)
 
@@ -50,26 +59,30 @@ function App() {
     //   //   setCards({...cards, card: {clicked: false}})
     //   // })
     // }
-    
 
+    // TODO: More efficient way to handle cards
+    // TODO: useEffects for card shuffling?
+    // TODO: Shuffle same vs shuffle new deck with all cards set to false.
+    // TODO: Get from small batch - (3 from pool of many (New func => DrawThreeCards())) -> Reshuffle if not clicked, new deck if clicked.
+    // TODO: OR just shuffle all cards and take first 3.
 
     cards.forEach((card) => {
       if(card.id === id && card.clicked === false) {
         console.log("NOT CLICKED");
-        // Pass separate CLICKED variable to Card via CardHolder
-        // setCards(cards)
 
         let cardsCopy = [...cards]
         cardsCopy[index].clicked = true
         setCards(cardsCopy)
         
-        incrementScore()
+        incrementScore() // TODO: useEffect on [score] to run above code. How will useEffect know what card to modify?
+                        // have Current Card state to work with. Use getIndexFromCard() to modify.
       }
       else if (card.id === id && card.clicked === true) {
         console.log("CLICKED");
-        incrementHighScore()
+        incrementHighScore() // TODO: useEffect on [highScore] to run below code. OR shuffle.
         // set all object clicked to false!
-        cards.forEach((card, idx) => { //Only setting indidual object to false
+        // TODO: Does using setState(newDeck()) produce a new deck for use in click handler?
+        cards.forEach((card, idx) => { //Only setting individual object to false
           let newCards = [...cards]
           newCards[idx].clicked = false
           setCards(newCards)
@@ -80,6 +93,8 @@ function App() {
     // setCards(ShuffleDeck(cards))
   }
 
+  // TODO: Material-UI for header and Cards.
+  // TODO: Theme and styles.
   return (
     <div className="App">
       <ScoreBoard score={score} highScore={highScore} />
