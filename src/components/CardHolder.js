@@ -5,7 +5,7 @@ import { makeStyles,
         TextField, 
         Typography, 
         Button, 
-        ButtonBase,
+        Container,
         IconButton, 
         Card, 
         CardContent,
@@ -15,10 +15,11 @@ import { makeStyles,
 
 const useStyles = makeStyles({
     root: {
-        maxWidth: 345,
+        maxWidth: 500,
     },
     media: {
         height: 240,
+        width: 400
     },
     flexGrow: {
         flexGrow: 1
@@ -31,48 +32,38 @@ export default function CardHolder({deck, handleClick}) {
 
     return (
         <div>
-            <Grid container className={classes.flexGrow} spacing={2}>
+            <Grid container className={classes.flexGrow} spacing={0}>
                 <Grid item xs={12}>
-                    <Grid container justify="center" spacing={2}>
-                        {deck.map((card) => (
-                            <Grid item key={card.id}>
-                                <Card className={classes.root}>
-                                    <CardActionArea onClick={() => handleClick(card)}>
-                                            {/* <CardMedia
-                                            className={classes.media}
-                                            image="/static/images/cards/contemplative-reptile.jpg"
-                                            title="Contemplative Reptile"
-                                        /> */}
-                                            <Typography gutterBottom variant="h5" component="h2">
-                                                {card.text}
-                                            </Typography>
-                                            <CardContent>
-                                                <Typography gutterBottom variant="h5" component="h2">
-                                                HEADER
-                                                </Typography>
-                                                <Typography variant="body2" color="textSecondary" component="p">
-                                                BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY
-                                                BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY
-                                                </Typography>
-                                            </CardContent>
-                                    </CardActionArea>
-                                    <CardActions>
-                                        <Button size="small" color="primary">
-                                            Learn More
-                                        </Button>
-                                    </CardActions>
-                                </Card>
-                            </Grid>
-
-                            // <CardContainer   
-                            //     key={card.id}
-                            //     id={card.id}
-                            //     text={card.text}
-                            //     clicked={card.clicked}
-                            //     handleClick={() => handleClick(card)}    
-                            // />
-                        ))}
-                    </Grid>
+                    <Container maxWidth={false}>
+                        <Grid container justify="center" spacing={3}>
+                            {deck.map((card) => (
+                                <Grid item key={card.id}>
+                                    <Card className={classes.root}>
+                                        <CardActionArea onClick={() => handleClick(card)}>
+                                                <CardMedia
+                                                    className={classes.media}
+                                                    image={card.image}
+                                                    title={card.title}
+                                                />
+                                                <CardContent>
+                                                    <Typography gutterBottom variant="h5" component="h2">
+                                                        {card.title}
+                                                    </Typography>
+                                                    <Typography variant="body2" color="textSecondary" component="p">
+                                                        {card.body}
+                                                    </Typography>
+                                                </CardContent>
+                                        </CardActionArea>
+                                        <CardActions>
+                                            <Button size="small" color="primary">
+                                                Learn More
+                                            </Button>
+                                        </CardActions>
+                                    </Card>
+                                </Grid>
+                            ))}
+                        </Grid>
+                    </Container>
                 </Grid>
             </Grid>
         </div>

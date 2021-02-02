@@ -36,7 +36,6 @@ export default function Header({score, highScore}) {
         <div>
             <AppBar position="static">
                 <Toolbar>
-                    
                     <Typography variant="h4" className={classes.flexGrow}>
                         Memory Game
                     </Typography>

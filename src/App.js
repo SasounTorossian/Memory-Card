@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import newDeck, { shuffleDeck, drawThreeCards }  from "./components/Deck"
 import Header from "./components/Header"
 import CardHolder from "./components/CardHolder"
+import './App.css'
 
 export default function App() {
   const [deck, setDeck] = useState([])
