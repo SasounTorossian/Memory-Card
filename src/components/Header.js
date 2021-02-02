@@ -12,26 +12,20 @@ import { makeStyles,
   import { GitHub } from '@material-ui/icons'
 
 const useStyles = makeStyles((theme) => ({
-    root: {
-        flexGrow: 1,
-    },
-    gitButton: {
-        marginRight: theme.spacing(2),
-    },
-    menuIcon: {
-        fontSize: "1.6em"
-    },
     gitIcon: {
         fontSize: "1.3em"
     },
     scaleEfect: {
-        transition: "all 0.2s ease-in-out",
+        transition: "all 0.1s ease-in-out",
         "&:hover": {
-        transform: "scale(1.1)"
+        transform: "scale(1.2)"
         }
     },
-    title: {
+    flexGrow: {
         flexGrow: 1, 
+    },
+    rightMargin: {
+        marginRight: 10, 
     },
 }));
 
@@ -42,13 +36,21 @@ export default function Header({score, highScore}) {
         <div>
             <AppBar position="static">
                 <Toolbar>
-                    <Typography variant="h5" className={classes.title}>
+                    
+                    <Typography variant="h4" className={classes.flexGrow}>
                         Memory Game
                     </Typography>
 
+                    <Typography variant="h6" className={classes.rightMargin}>
+                        {`Score: ${score}`}
+                    </Typography>
+
+                    <Typography variant="h6" className={classes.rightMargin}>
+                        {`High Score: ${highScore}`}
+                    </Typography>
+
                     <IconButton 
-                        className={`${classes.gitButton} ${classes.scaleEfect}`}
-                        edge="start" 
+                        className={`${classes.scaleEfect}`} 
                         color="inherit" 
                         aria-label="menu" 
                         target="_blank"
@@ -56,15 +58,6 @@ export default function Header({score, highScore}) {
                     >
                         <GitHub className={classes.gitIcon}/>
                     </IconButton>
-
-                    <Typography variant="h6" className={classes.title}>
-                        {`Score: ${score}`}
-                    </Typography>
-
-                    <Typography variant="h6" className={classes.title}>
-                        {`High Score: ${highScore}`}
-                    </Typography>
-
                 </Toolbar>
             </AppBar>
         </div>
