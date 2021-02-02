@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import newDeck, { shuffleDeck, drawThreeCards }  from "./components/Deck"
-import ScoreBoard from "./components/ScoreBoard"
+import Header from "./components/Header"
 import CardHolder from "./components/CardHolder"
 
 export default function App() {
@@ -47,7 +47,7 @@ export default function App() {
   // TODO: Theme and styles.
   return (
     <div className="App">
-      <ScoreBoard score={score} highScore={highScore} />
+      <Header score={score} highScore={highScore} />
       {currentHand.length > 1 && <CardHolder deck={currentHand} handleClick={handleClick} />}
     </div>
   );
