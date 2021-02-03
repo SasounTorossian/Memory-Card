@@ -9,7 +9,15 @@ import { makeStyles,
         ListItemIcon  
   } from '@material-ui/core'
 
-  import { GitHub } from '@material-ui/icons'
+import { GitHub } from '@material-ui/icons'
+import { createMuiTheme } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/styles';
+
+const darkTheme = createMuiTheme({
+    palette: {
+      type: 'dark',
+    },
+});
 
 const useStyles = makeStyles((theme) => ({
     gitIcon: {
@@ -33,8 +41,8 @@ const useStyles = makeStyles((theme) => ({
 export default function Header({score, highScore}) {
     const classes = useStyles();
     return (
-        <div>
-            <AppBar position="static">
+        <ThemeProvider theme={darkTheme}>
+            <AppBar position="static" color="transparent">
                 <Toolbar>
                     <Typography variant="h4" className={classes.flexGrow}>
                         Memory Game
@@ -59,6 +67,6 @@ export default function Header({score, highScore}) {
                     </IconButton>
                 </Toolbar>
             </AppBar>
-        </div>
+        </ThemeProvider>
     )
 }

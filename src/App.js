@@ -29,7 +29,6 @@ export default function App() {
 
   const handleClick = (card) => {
     if(card.clicked === false) {
-      console.log("NOT CLICKED");
       incrementScore() 
 
       setDeck([...deck, card.clicked = true])
@@ -37,19 +36,20 @@ export default function App() {
       setDeckAndHand(deck)
     }
     else if (card.clicked === true) {
-      console.log("CLICKED");
       incrementHighScore()
 
       setDeckAndHand(newDeck())
     }
   }
 
-  // TODO: Material-UI for header and Cards.
-  // TODO: Theme and styles.
   return (
     <div className="App">
-      <Header score={score} highScore={highScore} />
-      {currentHand.length > 1 && <CardHolder deck={currentHand} handleClick={handleClick} />}
+      <div className="header">
+        <Header score={score} highScore={highScore} />
+      </div>
+      <div className="main">
+        {currentHand.length > 1 && <CardHolder deck={currentHand} handleClick={handleClick} />}
+      </div>
     </div>
   );
 }

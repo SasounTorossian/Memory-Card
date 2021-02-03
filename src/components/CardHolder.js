@@ -13,16 +13,32 @@ import { makeStyles,
         CardActionArea,
         CardMedia } from '@material-ui/core'
 
+import { createMuiTheme } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/styles';
+
+const darkTheme = createMuiTheme({
+    palette: {
+      type: 'dark',
+    },
+});
+
 const useStyles = makeStyles({
     root: {
         maxWidth: 500,
+        // background: "#424242",
+        // color: "#fff"
     },
     media: {
         height: 240,
-        width: 400
+        width: 300
     },
     flexGrow: {
+        padding: "20px",
+        height: "100%",
         flexGrow: 1
+    },
+    height: {
+        height: "100%"
     }
 });
 
@@ -31,13 +47,13 @@ export default function CardHolder({deck, handleClick}) {
     const classes = useStyles();
 
     return (
-        <div>
-            <Grid container className={classes.flexGrow} spacing={0}>
-                <Grid item xs={12}>
-                    <Container maxWidth={false}>
-                        <Grid container justify="center" spacing={3}>
-                            {deck.map((card) => (
-                                <Grid item key={card.id}>
+        <Grid container className={classes.flexGrow} spacing={0}>
+            <Grid item xs={12}>
+                <Container maxWidth={false} className={classes.height} >
+                    <Grid container justify="center" spacing={5} className={classes.height} alignItems="center">
+                        {deck.map((card) => (
+                            <Grid item key={card.id}>
+                                <ThemeProvider theme={darkTheme}>
                                     <Card className={classes.root}>
                                         <CardActionArea onClick={() => handleClick(card)}>
                                                 <CardMedia
@@ -60,12 +76,12 @@ export default function CardHolder({deck, handleClick}) {
                                             </Button>
                                         </CardActions>
                                     </Card>
-                                </Grid>
-                            ))}
-                        </Grid>
-                    </Container>
-                </Grid>
+                                </ThemeProvider>
+                            </Grid>
+                        ))}
+                    </Grid>
+                </Container>
             </Grid>
-        </div>
+        </Grid>
     )
 }
