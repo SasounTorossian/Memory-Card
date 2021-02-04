@@ -9,34 +9,33 @@ import { makeStyles,
         CardActions,
         CardActionArea,
         CardMedia,} from '@material-ui/core'
-
-import { createMuiTheme } from '@material-ui/core/styles';
-import { ThemeProvider } from '@material-ui/styles';
+        
+import { grey } from '@material-ui/core/colors';
 import { motion, AnimatePresence } from 'framer-motion'
 
-const darkTheme = createMuiTheme({
-    palette: {
-      type: 'dark',
-    },
-});
-
+//TODO: Space evenly instead of 30 30.
 const useStyles = makeStyles({
     cardRoot: {
         maxWidth: 500,
         marginLeft: 30,
         marginRight: 30,
+        color: "#000",
+        backgroundColor: grey[200]
     },
     media: {
         height: 260,
         width: 350
     },
-    flexGrow: {
+    gridRoot: {
         padding: "20px",
         height: "100%",
         flexGrow: 1
     },
-    height: {
+    fullHeight: {
         height: "100%"
+    },
+    bodyText: {
+        color: grey[700]
     }
 });
 
@@ -64,7 +63,7 @@ export default function CardHolder({deck, handleClick}) {
     return (
     <AnimatePresence exitBeforeEnter>
         {showCards && (
-            <Grid container className={classes.flexGrow} spacing={0} alignItems="center" justify="center">
+            <Grid container className={classes.gridRoot} spacing={0} alignItems="center" justify="center">
                 <motion.div 
                     variants={variants}
                     initial="hidden"
@@ -72,34 +71,34 @@ export default function CardHolder({deck, handleClick}) {
                     exit="hidden"
                 >
                     <Grid item xs={12}>
-                        <Container maxWidth={false} className={classes.height} >
-                                <Grid container justify="center" spacing={5} className={classes.height} alignItems="center">
+                        <Container maxWidth={false} className={classes.fullHeight} >
+                                <Grid container justify="center" spacing={5} className={classes.fullHeight} alignItems="center">
                                     {deck.map((card) => (
                                         <Grid item key={card.id}>
-                                            <ThemeProvider theme={darkTheme}>
-                                                <Card className={classes.cardRoot}>
-                                                    <CardActionArea onClick={() => clickHandler(card)}>
-                                                            <CardMedia
-                                                                className={classes.media}
-                                                                image={card.image}
-                                                                title={card.title}
-                                                            />
-                                                            <CardContent>
-                                                                <Typography gutterBottom variant="h5" component="h2">
-                                                                    {card.title}
-                                                                </Typography>
-                                                                <Typography variant="body2" color="textSecondary" component="p">
-                                                                    {card.body}
-                                                                </Typography>
-                                                            </CardContent>
-                                                    </CardActionArea>
-                                                    <CardActions>
-                                                        <Button size="small" color="primary">
+                                            <Card className={classes.cardRoot}>
+                                                <CardActionArea onClick={() => clickHandler(card)}>
+                                                        <CardMedia
+                                                            className={classes.media}
+                                                            image={card.image}
+                                                            title={card.title}
+                                                        />
+                                                        <CardContent>
+                                                            <Typography gutterBottom variant="h5">
+                                                                {card.title}
+                                                            </Typography>
+                                                            <Typography variant="body2" className={classes.bodyText}>
+                                                                {card.body}
+                                                            </Typography>
+                                                        </CardContent>
+                                                </CardActionArea>
+                                                <CardActions>
+                                                    <Button size="small" color="primary">
+                                                        <Typography gutterBottom variant="body2">
                                                             Learn More
-                                                        </Button>
-                                                    </CardActions>
-                                                </Card>
-                                            </ThemeProvider>
+                                                        </Typography>
+                                                    </Button>
+                                                </CardActions>
+                                            </Card>
                                         </Grid>
                                     ))}
                                 </Grid>
