@@ -48,7 +48,7 @@ export default function App() {
         <Header score={score} highScore={highScore} />
       </div>
       <div className="main">
-        {currentHand.length > 1 && <CardHolder deck={currentHand} handleClick={handleClick} />}
+        <CardHolder deck={currentHand} handleClick={handleClick} />
       </div>
     </div>
   );

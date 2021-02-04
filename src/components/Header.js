@@ -3,11 +3,7 @@ import { makeStyles,
         Typography, 
         AppBar, 
         Toolbar, 
-        IconButton, 
-        Menu, 
-        MenuItem, 
-        ListItemIcon  
-  } from '@material-ui/core'
+        IconButton, } from '@material-ui/core'
 
 import { GitHub } from '@material-ui/icons'
 import { createMuiTheme } from '@material-ui/core/styles';
