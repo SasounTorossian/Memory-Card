@@ -1,15 +1,16 @@
 import React, {useState, useEffect} from 'react'
-import { makeStyles, 
-        Grid, 
-        Typography, 
-        Button, 
-        Container,
-        Card, 
-        CardContent,
-        CardActions,
-        CardActionArea,
-        CardMedia,} from '@material-ui/core'
-        
+import { 
+    makeStyles, 
+    Grid, 
+    Typography, 
+    Button, 
+    Container,
+    Card, 
+    CardContent,
+    CardActions,
+    CardActionArea,
+    CardMedia
+} from '@material-ui/core'
 import { grey } from '@material-ui/core/colors';
 import { motion, AnimatePresence } from 'framer-motion'
 
@@ -45,6 +46,12 @@ export default function CardHolder({deck, handleClick}) {
     const transitionTime = 0.5
     const classes = useStyles();
 
+    const variants = {
+        hidden: { opacity: 0 },
+        visible: { opacity: 1 },
+        transition: { duration: transitionTime }, 
+    }
+    
     const clickHandler = (card) => {
         setShowCards(false)
         setTimeout(() => { handleClick(card) }, transitionTime * 1000)
@@ -54,11 +61,6 @@ export default function CardHolder({deck, handleClick}) {
         setShowCards(true)
     }, [deck])
 
-    const variants = {
-        hidden: { opacity: 0 },
-        visible: { opacity: 1 },
-        transition: { duration: transitionTime }, 
-    }
 
     return (
     <AnimatePresence exitBeforeEnter>

@@ -1,11 +1,11 @@
 import React from 'react'
-import { makeStyles, 
-        Typography, 
-        AppBar, 
-        Toolbar, 
-        IconButton, } from '@material-ui/core'
-
-import { grey } from '@material-ui/core/colors';
+import { 
+    makeStyles, 
+    Typography, 
+    AppBar, 
+    Toolbar, 
+    IconButton
+} from '@material-ui/core'
 import { GitHub } from '@material-ui/icons'
 
 
@@ -28,13 +28,22 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 // Component that displays the scoreboard above.
-export default function Header({score, highScore}) {
+export default function Header({score, highScore, message}) {
     const classes = useStyles();
+
+    const inErrorColor = () => { 
+        return (message === "Starting game" || message === "Good choice") ? "primary" : "secondary"
+    }
+
     return (
         <AppBar position="static" color="transparent">
             <Toolbar>
                 <Typography variant="h4" className={classes.flexGrow}>
                     Memory Game
+                </Typography>
+
+                <Typography variant="h6" color={inErrorColor()} className={classes.rightMargin}>
+                    {message}
                 </Typography>
 
                 <Typography variant="h6" className={classes.rightMargin}>
