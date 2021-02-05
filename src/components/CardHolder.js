@@ -5,6 +5,7 @@ import {
     Typography, 
     Button, 
     Container,
+    Link,
     Card, 
     CardContent,
     CardActions,
@@ -100,14 +101,16 @@ export default function CardHolder({deck, handleClick}) {
                                                         </CardContent>
                                                 </CardActionArea>
                                                 <CardActions>
-                                                    <Button size="small" color="primary">
-                                                        <Typography gutterBottom variant="body2">
-                                                            Learn More
-                                                        </Typography>
-                                                    </Button>
+                                                    <Link target="_blank" href={card.link}>
+                                                        <Button size="small" color="primary">
+                                                            <Typography gutterBottom variant="body2">
+                                                                    Learn More
+                                                            </Typography>
+                                                        </Button>
+                                                    </Link>
                                                 </CardActions>
                                             </Card>
-                                            
+
                                         </Grid>
                                     ))}
                                 </Grid>
