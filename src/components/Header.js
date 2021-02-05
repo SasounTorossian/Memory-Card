@@ -31,7 +31,8 @@ const useStyles = makeStyles((theme) => ({
 export default function Header({score, highScore, message}) {
     const classes = useStyles();
 
-    const inErrorColor = () => { 
+    // If positive message use primary colour (blue), if negative use secondary colour (red) 
+    const messageColor = () => { 
         return (message === "Starting game" || message === "Good choice") ? "primary" : "secondary"
     }
 
@@ -42,7 +43,7 @@ export default function Header({score, highScore, message}) {
                     Memory Game
                 </Typography>
 
-                <Typography variant="h6" color={inErrorColor()} className={classes.rightMargin}>
+                <Typography variant="h6" color={messageColor()} className={classes.rightMargin}>
                     {message}
                 </Typography>
 

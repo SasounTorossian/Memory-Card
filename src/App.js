@@ -5,13 +5,14 @@ import CardHolder from "./components/CardHolder"
 import './App.css'
 
 export default function App() {
-  const [deck, setDeck] = useState([])
-  const [currentHand, setCurrentHand] = useState([])
-  const [message, setMessage] = useState("Starting game")
-  const [score, setScore] = useState(0)
-  const [highScore, setHighScore] = useState(0)
+  const [deck, setDeck] = useState([]) // Used to hold a newly created deck
+  const [currentHand, setCurrentHand] = useState([]) // Holds current 3 cards to display
+  const [message, setMessage] = useState("Starting game") // Holds messages for the header score board
+  const [score, setScore] = useState(0) // Game score so far
+  const [highScore, setHighScore] = useState(0) // Highest score acheived 
   
-  useEffect(() => { setDeckAndHand(newDeck()) }, [])
+  // Creates new deck, and sets state with it on mount
+  useEffect(() => { setDeckAndHand(newDeck()) }, []) 
 
   const incrementScore = () => { setScore(score + 1) }
 
@@ -19,24 +20,26 @@ export default function App() {
 
   const incrementHighScore = () => { if (score > highScore) setHighScore(score) }
 
+  // Takes deck of cards as parameter, shuffles it, and draws 3 cards from it to set state
   const setDeckAndHand = (deck) => {
     const shuffledDeck = shuffleDeck(deck)
     setDeck(shuffledDeck)
     setCurrentHand(drawThreeCards(shuffledDeck))
   }
 
+  // Handles card clicks
   const handleClick = (card) => {
-    if(card.clicked === false) {
+    if(card.clicked === false) { 
       incrementScore() 
       setMessage("Good choice")
-      setDeck([...deck, card.clicked = true])
-      setDeckAndHand(deck)
+      setDeck([...deck, card.clicked = true]) // Sets particular card object's "clicked" member to true.
+      setDeckAndHand(deck) // Reshuffle same deck and draw 3 cards
     }
     else if (card.clicked === true) {
       incrementHighScore()
       resetScore()
       setMessage("Duplicate choice")
-      setDeckAndHand(newDeck())
+      setDeckAndHand(newDeck()) // Reshuffle new deck and draw 3 cards
     }
   }
 

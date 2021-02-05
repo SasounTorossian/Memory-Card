@@ -40,33 +40,38 @@ const useStyles = makeStyles({
     }
 });
 
+// Variants for transitions
+const variants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+    transition: transitionTime => ({ 
+        duration: transitionTime 
+    }) 
+}
+
 // Component that renders array of cards correctly for user to select
 export default function CardHolder({deck, handleClick}) {
-    const [showCards, setShowCards] = useState(true)
-    const transitionTime = 0.5
+    const [showCards, setShowCards] = useState(true) // Used to control fade in/out animation
+    const transitionTime = 0.5 // Transition time for elements
     const classes = useStyles();
-
-    const variants = {
-        hidden: { opacity: 0 },
-        visible: { opacity: 1 },
-        transition: { duration: transitionTime }, 
-    }
     
+    /* Sets showCards to false so that they fade out in transitionTime sec
+    handleClick will be called after transitionTime * 1000 (to get ms)
+    in order to give animation time to fade out*/
     const clickHandler = (card) => {
         setShowCards(false)
         setTimeout(() => { handleClick(card) }, transitionTime * 1000)
     }
 
-    useEffect(() => {
-        setShowCards(true)
-    }, [deck])
-
+    // Sets showCards to true every time there is a new deck, allowing it to fade in
+    useEffect(() => { setShowCards(true) }, [deck])
 
     return (
     <AnimatePresence exitBeforeEnter>
         {showCards && (
             <Grid container className={classes.gridRoot} spacing={0} alignItems="center" justify="center">
                 <motion.div 
+                    custom={transitionTime}
                     variants={variants}
                     initial="hidden"
                     animate="visible"
@@ -77,6 +82,7 @@ export default function CardHolder({deck, handleClick}) {
                                 <Grid container justify="center" spacing={5} className={classes.fullHeight} alignItems="center">
                                     {deck.map((card) => (
                                         <Grid item key={card.id}>
+
                                             <Card className={classes.cardRoot}>
                                                 <CardActionArea onClick={() => clickHandler(card)}>
                                                         <CardMedia
@@ -101,6 +107,7 @@ export default function CardHolder({deck, handleClick}) {
                                                     </Button>
                                                 </CardActions>
                                             </Card>
+                                            
                                         </Grid>
                                     ))}
                                 </Grid>

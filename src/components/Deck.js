@@ -7,7 +7,7 @@ import whale from "../images/whale.jpg"
 import shrimp from "../images/shrimp.jpg"
 import fox from "../images/fox.jpg"
 
-// Create array of objecs to serve as deck.
+// Create array of objects to serve as deck.
 export default function newDeck() {
     let deck = [
         {
@@ -81,10 +81,10 @@ export default function newDeck() {
 
 // Shuffles deck using Fisher–Yates algorithm
 export function shuffleDeck(deck) {
-    var currentIndex = deck.length, temporaryValue, randomIndex;
+    let currentIndex = deck.length, temporaryValue, randomIndex;
   
     // While there remain elements to shuffle...
-    while (0 !== currentIndex) {
+    while (currentIndex !== 0) {
   
       // Pick a remaining element...
       randomIndex = Math.floor(Math.random() * currentIndex);
