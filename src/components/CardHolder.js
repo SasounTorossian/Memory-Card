@@ -15,13 +15,10 @@ import {
 import { grey } from '@material-ui/core/colors';
 import { motion, AnimatePresence } from 'framer-motion'
 
-//TODO: Space evenly instead of 30 30.
 const useStyles = makeStyles({
     cardRoot: {
         height: 430,
         width: 350,
-        marginLeft: 30,
-        marginRight: 30,
         color: "#000",
         backgroundColor: grey[200]
     },
@@ -73,6 +70,7 @@ export default function CardHolder({deck, handleClick}) {
         {showCards && (
             <Grid container className={classes.gridRoot} spacing={0} alignItems="center" justify="center">
                 <motion.div 
+                    style={{ width: "100%" }}
                     custom={transitionTime}
                     variants={variants}
                     initial="hidden"
@@ -81,10 +79,9 @@ export default function CardHolder({deck, handleClick}) {
                 >
                     <Grid item xs={12}>
                         <Container maxWidth={false} className={classes.fullHeight} >
-                                <Grid container justify="center" spacing={5} className={classes.fullHeight} alignItems="center">
+                                <Grid container spacing={5} className={classes.fullHeight} alignItems="center" justify="space-evenly">
                                     {deck.map((card) => (
                                         <Grid item key={card.id}>
-
                                             <Card className={classes.cardRoot}>
                                                 <CardActionArea onClick={() => clickHandler(card)}>
                                                         <CardMedia
@@ -111,7 +108,6 @@ export default function CardHolder({deck, handleClick}) {
                                                     </Link>
                                                 </CardActions>
                                             </Card>
-
                                         </Grid>
                                     ))}
                                 </Grid>
