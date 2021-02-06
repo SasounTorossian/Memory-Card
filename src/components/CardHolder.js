@@ -18,14 +18,15 @@ import { motion, AnimatePresence } from 'framer-motion'
 //TODO: Space evenly instead of 30 30.
 const useStyles = makeStyles({
     cardRoot: {
-        maxWidth: 500,
+        height: 430,
+        width: 350,
         marginLeft: 30,
         marginRight: 30,
         color: "#000",
         backgroundColor: grey[200]
     },
     media: {
-        height: 260,
+        height: 250,
         width: 350
     },
     gridRoot: {
@@ -101,7 +102,7 @@ export default function CardHolder({deck, handleClick}) {
                                                         </CardContent>
                                                 </CardActionArea>
                                                 <CardActions>
-                                                    <Link target="_blank" href={card.link}>
+                                                    <Link target="_blank" href={card.link} underline="none">
                                                         <Button size="small" color="primary">
                                                             <Typography gutterBottom variant="body2">
                                                                     Learn More
