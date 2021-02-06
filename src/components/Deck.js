@@ -18,6 +18,7 @@ import mantis from "../images/mantis.jpg"
 import platypus from "../images/platypus.jpg"
 import falcon from "../images/falcon.jpg"
 import elk from "../images/elk.jpg"
+import chimp from "../images/chimp.jpg"
 
 // Create array of objects to serve as deck.
 export default function newDeck() {
@@ -180,6 +181,14 @@ export default function newDeck() {
             title: "Elk",
             body: "Bull elk lose their antlers each March, but they begin to grow them back in May in preparation for the late-summer breeding season.",
             link: "https://en.wikipedia.org/wiki/Elk",
+            clicked: false
+        },
+        {
+            id: 20,
+            image: chimp,
+            title: "Chimpanzee",
+            body: "Chimpanzees may eat certain plants for their medicinal value to treat upset stomachs, headaches, and infections.",
+            link: "https://en.wikipedia.org/wiki/Chimpanzee",
             clicked: false
         },
     ]
