@@ -1,0 +1,41 @@
+{
+  "files": {
+    "main.css": "/%7BMemory-Card%7D/static/css/main.73d9918f.chunk.css",
+    "main.js": "/%7BMemory-Card%7D/static/js/main.a7b4b614.chunk.js",
+    "main.js.map": "/%7BMemory-Card%7D/static/js/main.a7b4b614.chunk.js.map",
+    "runtime-main.js": "/%7BMemory-Card%7D/static/js/runtime-main.2a9c9f59.js",
+    "runtime-main.js.map": "/%7BMemory-Card%7D/static/js/runtime-main.2a9c9f59.js.map",
+    "static/js/2.593b6aa3.chunk.js": "/%7BMemory-Card%7D/static/js/2.593b6aa3.chunk.js",
+    "static/js/2.593b6aa3.chunk.js.map": "/%7BMemory-Card%7D/static/js/2.593b6aa3.chunk.js.map",
+    "index.html": "/%7BMemory-Card%7D/index.html",
+    "static/css/main.73d9918f.chunk.css.map": "/%7BMemory-Card%7D/static/css/main.73d9918f.chunk.css.map",
+    "static/js/2.593b6aa3.chunk.js.LICENSE.txt": "/%7BMemory-Card%7D/static/js/2.593b6aa3.chunk.js.LICENSE.txt",
+    "static/media/bear.98369d08.jpg": "/%7BMemory-Card%7D/static/media/bear.98369d08.jpg",
+    "static/media/cassowary.dac3db73.jpg": "/%7BMemory-Card%7D/static/media/cassowary.dac3db73.jpg",
+    "static/media/chameleon.adf3e345.jpg": "/%7BMemory-Card%7D/static/media/chameleon.adf3e345.jpg",
+    "static/media/chimp.4227aaab.jpg": "/%7BMemory-Card%7D/static/media/chimp.4227aaab.jpg",
+    "static/media/crocodile.4d495e0e.jpg": "/%7BMemory-Card%7D/static/media/crocodile.4d495e0e.jpg",
+    "static/media/elephant.c34a05f9.jpg": "/%7BMemory-Card%7D/static/media/elephant.c34a05f9.jpg",
+    "static/media/elk.9fa1c799.jpg": "/%7BMemory-Card%7D/static/media/elk.9fa1c799.jpg",
+    "static/media/falcon.90465166.jpg": "/%7BMemory-Card%7D/static/media/falcon.90465166.jpg",
+    "static/media/fox.fadd4e6b.jpg": "/%7BMemory-Card%7D/static/media/fox.fadd4e6b.jpg",
+    "static/media/giraffe.4e7b00bf.jpg": "/%7BMemory-Card%7D/static/media/giraffe.4e7b00bf.jpg",
+    "static/media/horshoeCrab.7c85fca9.jpg": "/%7BMemory-Card%7D/static/media/horshoeCrab.7c85fca9.jpg",
+    "static/media/jellyfish.b642f3c3.jpg": "/%7BMemory-Card%7D/static/media/jellyfish.b642f3c3.jpg",
+    "static/media/mantis.b2ff11ed.jpg": "/%7BMemory-Card%7D/static/media/mantis.b2ff11ed.jpg",
+    "static/media/octopus.86b9ebfa.jpg": "/%7BMemory-Card%7D/static/media/octopus.86b9ebfa.jpg",
+    "static/media/peafowl.31724973.jpg": "/%7BMemory-Card%7D/static/media/peafowl.31724973.jpg",
+    "static/media/platypus.cc20c55e.jpg": "/%7BMemory-Card%7D/static/media/platypus.cc20c55e.jpg",
+    "static/media/shrimp.c2375171.jpg": "/%7BMemory-Card%7D/static/media/shrimp.c2375171.jpg",
+    "static/media/spiderCrab.19d69970.jpg": "/%7BMemory-Card%7D/static/media/spiderCrab.19d69970.jpg",
+    "static/media/tiger.6a0df68a.jpg": "/%7BMemory-Card%7D/static/media/tiger.6a0df68a.jpg",
+    "static/media/whale.649ad83f.jpg": "/%7BMemory-Card%7D/static/media/whale.649ad83f.jpg",
+    "static/media/wolf.c3ff959a.jpg": "/%7BMemory-Card%7D/static/media/wolf.c3ff959a.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2a9c9f59.js",
+    "static/js/2.593b6aa3.chunk.js",
+    "static/css/main.73d9918f.chunk.css",
+    "static/js/main.a7b4b614.chunk.js"
+  ]
+}
